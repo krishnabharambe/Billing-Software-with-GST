@@ -17,6 +17,8 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import static login.loginDbController.UserAuth;
+
 public class logincontroller implements Initializable {
     @FXML
     private TextField txtLogin;
@@ -65,6 +67,16 @@ public class logincontroller implements Initializable {
             notifications.showError();
         }else{
             //towards the login
+             if(UserAuth(username,password)){
+                 System.out.println("Login Success");
+            }else {
+                 Notifications notifications = Notifications.create();
+                 notifications.title("Check Username/Password");
+                 notifications.text("Please, Check Your Username/Password.");
+                 notifications.hideAfter(Duration.seconds(5));
+                 notifications.position(Pos.TOP_RIGHT);
+                 notifications.showError();
+             }
 
         }
     }

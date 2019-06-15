@@ -1,5 +1,6 @@
 package Startup;
 
+import Database.db;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +20,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        //creating user table
+        db.setdata("CREATE table if not exists userManager(id integer primary key autoincrement,Name text,contact text,email text,aboutUser text,joiningDate text,leavingDate text,username text,password text,dated_on text,updated_on text,timestamp text)");
         launch(args);
     }
 }
